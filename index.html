@@ -47,6 +47,43 @@
 
 
 <!-- End Google Tag Manager -->
+
+<script type="text/javascript">
+    // Please replace 'GTMevent' with the event you have just created
+    window.addEventListener("GTMevent", function (e) {
+        if( e.detail && e.detail.event == "consent_status") {
+            // Please replace the analytics service name here with the customized service    
+            var ucAnalyticsService = 'Google Analytics';
+            // Please replace the ad service name here with the customized service
+            var ucAdService = 'Google Ads Remarketing';
+    
+            if(e.detail.hasOwnProperty(ucAnalyticsService) && e.detail.hasOwnProperty(ucAdService))
+            {
+                gtag("consent", "update", {
+                    ad_storage: e.detail[ucAdService] ? 'granted':'denied',
+                    ad_user_data: e.detail[ucAdService] ? 'granted':'denied',
+                    ad_personalization: e.detail[ucAdService] ? 'granted':'denied',
+                    analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
+                });
+            }
+            else {            
+                if(e.detail.hasOwnProperty(ucAdService)) {
+                    gtag("consent", "update", {
+                        ad_storage: e.detail[ucAdService] ? 'granted':'denied',
+                        ad_user_data: e.detail[ucAdService] ? 'granted':'denied',
+                        ad_personalization: e.detail[ucAdService] ? 'granted':'denied' 
+                    });
+                }            
+                if(e.detail.hasOwnProperty(ucAnalyticsService)) {
+                  gtag("consent", "update", {
+                        analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
+                    });
+                }
+            }
+        }
+    });
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Analytics Integration Example</title>
