@@ -1,89 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNLKM7P1N2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="_JPRsKysQdqO24" async></script>
-
-<!-- Google Tag Manager -->
-    <script type="text/javascript">
-        // create dataLayer
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        // set „denied" as default for both ad and analytics storage, as well as ad_user_data and ad_personalization,
-        gtag("consent", "default", {
-            ad_user_data: "denied",
-            ad_personalization: "denied",
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            wait_for_update: 2000 // milliseconds to wait for update
-        });
-
-        // Enable ads data redaction by default [optional]
-        gtag("set", "ads_data_redaction", true);
-    </script>
-
-    <script type="text/javascript">
-        // Google Tag Manager
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5VMMKQTF'); //replace GTM-XXXXXX with Google Tag Manager ID
-    </script>
-
-
-
-
-<!-- End Google Tag Manager -->
-
-<script type="text/javascript">
-    // Please replace 'GTMevent' with the event you have just created
-    window.addEventListener("GTMevent", function (e) {
-        if( e.detail && e.detail.event == "consent_status") {
-            // Please replace the analytics service name here with the customized service    
-            var ucAnalyticsService = 'Google Analytics';
-            // Please replace the ad service name here with the customized service
-            var ucAdService = 'Google Ads Remarketing';
-    
-            if(e.detail.hasOwnProperty(ucAnalyticsService) && e.detail.hasOwnProperty(ucAdService))
-            {
-                gtag("consent", "update", {
-                    ad_storage: e.detail[ucAdService] ? 'granted':'denied',
-                    ad_user_data: e.detail[ucAdService] ? 'granted':'denied',
-                    ad_personalization: e.detail[ucAdService] ? 'granted':'denied',
-                    analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
-                });
-            }
-            else {            
-                if(e.detail.hasOwnProperty(ucAdService)) {
-                    gtag("consent", "update", {
-                        ad_storage: e.detail[ucAdService] ? 'granted':'denied',
-                        ad_user_data: e.detail[ucAdService] ? 'granted':'denied',
-                        ad_personalization: e.detail[ucAdService] ? 'granted':'denied' 
-                    });
-                }            
-                if(e.detail.hasOwnProperty(ucAnalyticsService)) {
-                  gtag("consent", "update", {
-                        analytics_storage: e.detail[ucAnalyticsService] ? 'granted':'denied'
-                    });
-                }
-            }
-        }
-    });
-    </script>
-    
+  gtag('config', 'G-ZNLKM7P1N2');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Analytics Integration Example</title>
@@ -163,10 +89,7 @@
     </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VMMKQTF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
     <header>
         <div class="container">
             <h1>Explore Google Analytics Features</h1>
